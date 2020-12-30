@@ -1,6 +1,9 @@
+package com.rph.lessons;
+
 import java.util.Scanner;
 
-public class Project1_RobertHelck{
+public class Aloha{
+
     public static void main(String[] args){
  //these are integer values for the for-loops
         int i;
