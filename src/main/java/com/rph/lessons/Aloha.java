@@ -1,10 +1,22 @@
 package com.rph.lessons;
 
+import java.util.Objects;
 import java.util.Scanner;
 
-public class Aloha{
+public class Aloha {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        new Aloha().execute(
+                new MyScanner(new Scanner(System.in)),
+                new MyScanner(new Scanner(System.in))
+        );
+    }
+
+
+    void execute(MyScanner scnr, MyScanner scnr2) {
+        Objects.requireNonNull(scnr);
+        Objects.requireNonNull(scnr2);
+
  //these are integer values for the for-loops
         int i;
         int x;
@@ -18,21 +30,21 @@ public class Aloha{
         String[] transVowels = {"ah","eh","ee","oh","oo"};
         String[] diphthongs = {"ai","ae","ao","au","ei","eu","iu","oi","ou","ui"};
         String[] transDiphthongs = {"eye","eye","ow","ow","ay","eh-oo","ew","oy","ow","ooey"};
-        Scanner scnr = new Scanner(System.in);
-        Scanner scnr2 = new Scanner(System.in);
         char lastVowel = 'a';
         String command = "y";
         Boolean notHawaiian = false;
+
 
 //Here is the main part of the code, where the diphthongs (double vowels), vowels, and consontants are evaluated.
         while(command.equals("y") || command.equals("Y")){
             String userInput = "";
             outputWord = "";
+
             System.out.println("Enter a Hawaiian word to pronounce");
             userInput = scnr.nextLine().toLowerCase();
             first:
             for(i = 0;i<userInput.length();++i){
-                Boolean hasDip = false;
+                boolean hasDip = false;
                 Boolean hasCon = false;
                 Boolean hasVow = false;
                 notHawaiian = false;
@@ -91,4 +103,6 @@ public class Aloha{
             command = scnr2.next();
         }
     }
+
+
 }
